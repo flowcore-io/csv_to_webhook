@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+// const nextConfig = {}
 
-module.exports = nextConfig
+// module.exports = nextConfig
 
-// const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === 'production';
 
-// module.exports = {
-//     output: 'standalone',
-//     basePath: isProd ? '/csv_to_webhook' : '',
-//     assetPrefix: isProd ? '/csv_to_webhook/' : '',
-// };
+module.exports = {
+    output: 'standalone',
+    basePath: isProd ? '/csv_to_webhook' : '',
+    assetPrefix: isProd ? '/csv_to_webhook/' : '',
+};
