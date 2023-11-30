@@ -2,6 +2,8 @@
 
 import React, { useState, ChangeEvent } from 'react';
 import { parallel } from 'radash';
+import Link from 'next/link';
+import Image from 'next/image';
 
 type Line = string;
 type Header = string;
@@ -142,6 +144,12 @@ export default function Home() {
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={handleFileUpload}>
           Start
         </button>
+        <div className="w-full max-w-lg flex justify-end items-center mt-4">
+          <Link href="https://www.flowcore.com" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-700 mr-2">
+            Powered by Flowcore
+          </Link>
+          <Image src="/favicon.ico" alt="Flowcore icon" width={16} height={16} />
+        </div>
       </div>
     </form>
     <div className="w-full max-w-lg">
