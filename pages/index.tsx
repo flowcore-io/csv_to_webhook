@@ -128,7 +128,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
       <h1 className="w-full max-w-lg text-gray-700 flex justify-center text-2xl">Stream a CSV file to a webhook</h1>
-      <p className="w-full max-w-lg text-gray-700 flex justify-center text-xs mb-4">The program streams a CSV file, converting its contents into JSON objects with batches of {batchLineCount} records each, and then POSTs these batches, using concurrency to a specified webhook URLutilizing a concurrency level of {concurrency}.</p>
+      <p className="w-full max-w-lg text-gray-700 flex justify-center text-xs mb-4">The program streams a CSV file, converting its contents into JSON objects with batches of {batchLineCount} records each, and then POSTs these batches, using concurrency to a specified webhook URL utilizing a concurrency level of {concurrency}.</p>
       <form className="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="file">
