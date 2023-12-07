@@ -67,25 +67,26 @@ export default function Home() {
             firstLine = false;
           }
         }
-  
-        let lines: any = result.lines
-          .filter(line => typeof line === 'string')
-          .map((line: Line) => lineToJSON(line, headers));
+
+        let lines: any = result.lines;
         let batches: JSONLine[][] = [];
-  
+
         while (lines.length >= batchLineCount) {
-          const batch = lines.splice(0, batchLineCount).map((line: any) => lineToJSON(line, headers));
+          // Splicing directly into batches without mapping again
+          const batch = lines.splice(0, batchLineCount).map((line: Line) => lineToJSON(line, headers));
           batches.push(batch);
         }
-  
+
         if (lines.length > 0) {
+          // Remaining lines added to the last batch
           const remainingBatch = lines.map((line: any) => lineToJSON(line, headers));
           batches.push(remainingBatch);
         }
 
         // Use radash for parallel processing
         await parallel(concurrency, batches, postToWebhook);
-        
+
+        // Processing partial line if exists
         if (partialLine) {
           await postToWebhook([lineToJSON(partialLine, headers)]);
         }
